@@ -5,9 +5,9 @@ SilverStripe\CMS\Controllers\ContentController:
   extensions:
     - SilverStripe\FullTextSearch\Solr\Control\ContentControllerExtension
 
-#SilverStripe\Core\Injector\Injector:
-#  SilverStripe\FullTextSearch\Solr\Forms\SearchForm:
-#    class: NobrainerWeb\App\Search\SearchForm
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\FullTextSearch\Solr\Forms\SearchForm:
+    class: NobrainerWeb\Solr\Form\SearchForm
 
 SilverStripe\FullTextSearch\Search\FullTextSearch:
   indexes:
