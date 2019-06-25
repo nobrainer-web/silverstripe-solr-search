@@ -11,7 +11,7 @@ composer require nobrainer-web/solr-search
 ``` 
 
 ### Usage
-You can add fulltext fields to be index by defined the `custom_fields` config setting on `SolrIndex`.
+You can add fulltext fields to be indexed by defining the `custom_fields` config setting on `SolrIndex`.
 
 For example:
 
