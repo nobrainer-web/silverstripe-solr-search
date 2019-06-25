@@ -7,17 +7,27 @@ use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\FullTextSearch\Search\Variants\SearchVariantVersioned;
 use SilverStripe\Versioned\Versioned;
 
-/**
- * Created by PhpStorm.
- * User: sanderhagenaars
- * Date: 01/08/2018
- * Time: 08.27
- */
 class SolrIndex extends \SilverStripe\FullTextSearch\Solr\SolrIndex
 {
+    /**
+     * @config bool
+     */
+    private static $add_default_fields = true;
+
+    /**
+     * Add your own fields here to be indexed
+     *
+     * @config array
+     */
+    private static $custom_fields = [];
+
     public function init()
     {
         $this->addClass(SiteTree::class);
+
+        $this->addDefaultFields();
+
+        $this->addCustomFields();
 
         /** @see ElementalArea::getElementsForSearch */
         if (class_exists(ElementalArea::class)) {
@@ -27,7 +37,31 @@ class SolrIndex extends \SilverStripe\FullTextSearch\Solr\SolrIndex
         // dont index draft
         $this->excludeVariantState([SearchVariantVersioned::class => Versioned::DRAFT]);
 
-        // respect ShowInSearch // TODO does not seem to work
+        // TODO does not seem to work
+        // respect ShowInSearch 
         //$this->addFilterField('ShowInSearch');
+    }
+
+    protected function addDefaultFields()
+    {
+        if (!self::config()->add_default_fields) {
+            return;
+        }
+
+        $this->addFulltextField('Title');
+        $this->addFulltextField('MenuTitle');
+        $this->addFulltextField('Summary');
+    }
+
+    protected function addCustomFields()
+    {
+        $customFields = self::config()->custom_fields;
+        if (empty($customFields)) {
+            return;
+        }
+
+        foreach ($customFields as $field) {
+            $this->addFulltextField($field);
+        }
     }
 }
