@@ -25,3 +25,8 @@ NobrainerWeb\Solr\Index\SolrIndex:
 ### Defaults
 By default the fields Title, MenuTitle and Summary are added to the index. 
 You can disable this by setting the `add_default_fields` config setting to false. 
+
+### Setting environment options
+There are various `.env` settings you can define. You can see some of them in `_config.php`, but most of the time the default options are fine.
+
+If multiple sites on the server are sharing the same Solr instance, you might want to define `SS_SOLR_INDEX_PREFIX` or `SS_SOLR_INDEX_SUFFIX`, to make your Solr index's name unique.

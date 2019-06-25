@@ -26,6 +26,9 @@ class SearchForm extends \SilverStripe\FullTextSearch\Solr\Forms\SearchForm
         parent::__construct($controller, $name, $fields, $actions);
     }
 
+    /**
+     * @return FieldList
+     */
     public function Fields()
     {
         $fields = parent::Fields();
@@ -38,5 +41,20 @@ class SearchForm extends \SilverStripe\FullTextSearch\Solr\Forms\SearchForm
         }
 
         return $fields;
+    }
+
+    /**
+     * @return FieldList
+     */
+    public function Actions()
+    {
+        $actions = parent::Actions();
+
+        // modify submit
+        if ($f = $actions->first()) {
+            $f->setUseButtonTag(true)->addExtraClass('button');
+        }
+
+        return $actions;
     }
 }
