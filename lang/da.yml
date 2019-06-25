@@ -1,0 +1,13 @@
+da:
+  SEARCH:
+    YouSearchedFor: 'Du søgte efter "{query}"'
+    DidYouMean: 'Mente du'
+    ReadMoreAbout: 'Læs mere om {title}'
+    QueryNoResults: 'Beklager, din søgning gav intet resultat'
+    ResultsCount:
+      one: 'Din søgning returnerede {count} resultat'
+    ResultsCountQuery:
+      one: 'Din søgning efter "{query}" returnerede {count} resultat'
+      other: 'Din søgning efter "{query}" returnerede {count} resultater'
+    Previous: 'Forrige'
+    Next: 'Næste'
