@@ -21,9 +21,18 @@ class SolrIndex extends \SilverStripe\FullTextSearch\Solr\SolrIndex
      */
     private static $custom_fields = [];
 
+    /**
+     * Add your own classes here to be indexed
+     *
+     * @config array
+     */
+    private static $classesToIndex = [
+        SiteTree::class
+    ];
+
     public function init()
     {
-        $this->addClass(SiteTree::class);
+        $this->addClasses();
 
         $this->addDefaultFields();
 
@@ -51,6 +60,18 @@ class SolrIndex extends \SilverStripe\FullTextSearch\Solr\SolrIndex
         $this->addFulltextField('Title');
         $this->addFulltextField('MenuTitle');
         $this->addFulltextField('Summary');
+    }
+
+    protected function addClasses()
+    {
+        $classes = self::config()->classesToIndex;
+        if (empty($classes)) {
+            return;
+        }
+
+        foreach ($classes as $className) {
+            $this->addClass($className);
+        }
     }
 
     protected function addCustomFields()
