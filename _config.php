@@ -16,7 +16,7 @@ Solr::configure_server([
         'mode'       => Environment::getEnv('SOLR_MODE') ?: 'file',
         // [REQUIRED] a classname which implements SolrConfigStore, or 'file' or 'webdav'
         //'auth'       => Environment::getEnv('SOLR_AUTH') ? Environment::getEnv('SOLR_AUTH') : null,
-        'path'       => BASE_PATH . (Environment::getEnv('SOLR_INDEXSTORE_PATH') ?: '/.solr'),
+        'path'       => Environment::getEnv('SOLR_INDEXSTORE_PATH') ?: (BASE_PATH . '/.solr'),
         // [REQUIRED] The (locally accessible) path to write the index configurations to OR The suburl on the Solr host that is set up to accept index configurations via webdav (e.g. BASE_PATH . '/.solr')
         'remotepath' => Environment::getEnv('SOLR_INDEXSTORE_REMOTEPATH') ?: null,
         // The path that the Solr server will read the index configurations from
