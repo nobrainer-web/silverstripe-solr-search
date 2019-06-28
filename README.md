@@ -11,6 +11,7 @@ composer require nobrainer-web/solr-search
 ``` 
 
 ### Usage
+##### Adding fields to the index
 You can add fulltext fields to be indexed by defining the `custom_fields` config setting on `SolrIndex`.
 
 For example:
@@ -20,6 +21,16 @@ NobrainerWeb\Solr\Index\SolrIndex:
   custom_fields:
     - HeroTitle
     - HeroText
+```
+
+##### Adding classes to the index
+Classes to be added are defined in the `classesToIndex` config setting. `SiteTree` is included by default.
+example:
+
+```yml
+NobrainerWeb\Solr\Index\SolrIndex:
+  classesToIndex:
+    - MyDataObject
 ```
 
 ### Defaults
