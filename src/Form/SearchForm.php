@@ -12,6 +12,7 @@ use NobrainerWeb\App\PageTypes\HomePage;
 use SilverStripe\CMS\Controllers\ContentController;
 use SilverStripe\Control\RequestHandler;
 use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\FormAction;
 
 class SearchForm extends \SilverStripe\FullTextSearch\Solr\Forms\SearchForm
 {
@@ -22,7 +23,9 @@ class SearchForm extends \SilverStripe\FullTextSearch\Solr\Forms\SearchForm
         if ($page) {
             $controller = ContentController::create($page);
         }
-
+        $actions = FieldList::create(
+            FormAction::create("results", _t('SilverStripe\CMS\Search\SearchForm.SEARCH', 'Search'))
+        );
         parent::__construct($controller, $name, $fields, $actions);
     }
 
