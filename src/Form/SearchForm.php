@@ -18,9 +18,9 @@ class SearchForm extends \SilverStripe\FullTextSearch\Solr\Forms\SearchForm
     public function __construct(RequestHandler $controller = null, string $name = 'SearchForm', FieldList $fields = null, FieldList $actions = null)
     {
         // try to always have the same controller handle search view
-        $home = class_exists(HomePage::class) ? HomePage::get()->first() : null;
-        if ($home) {
-            $controller = ContentController::create($home);
+        $page = \Page::get()->filter('ClassName', \Page::class)->first();
+        if ($page) {
+            $controller = ContentController::create($page);
         }
 
         parent::__construct($controller, $name, $fields, $actions);
