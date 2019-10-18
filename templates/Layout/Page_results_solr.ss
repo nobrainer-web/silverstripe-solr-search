@@ -38,11 +38,6 @@
                                     <% end_if %>
                                 </a>
                             </div>
-                            <% if $TopLevelBranch && $TopLevelBranch.ClassName.ShortName == 'BranchPage' %>
-                                <a href="$Link" class="search-results-item__branch">
-                                    <small>$TopLevelBranch.MenuTitle</small>
-                                </a>
-                            <% end_if %>
                             <a class="search-results-item__url" href="$Link" title="<%t SEARCH.ReadMoreAbout 'Read more about "{title}"' title=$Title %>">
                                 $AbsoluteLink
                             </a>
