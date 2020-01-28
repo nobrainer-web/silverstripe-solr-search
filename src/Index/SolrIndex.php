@@ -59,6 +59,7 @@ class SolrIndex extends \SilverStripe\FullTextSearch\Solr\SolrIndex
 
         $this->addFulltextField('Title');
         $this->addFulltextField('MenuTitle');
+        $this->addFulltextField('Content');
         $this->addFulltextField('Summary');
     }
 
