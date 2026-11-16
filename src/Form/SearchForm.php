@@ -8,7 +8,6 @@
 
 namespace NobrainerWeb\Solr\Form;
 
-use NobrainerWeb\App\PageTypes\HomePage;
 use SilverStripe\CMS\Controllers\ContentController;
 use SilverStripe\Control\RequestHandler;
 use SilverStripe\Forms\FieldList;
@@ -16,7 +15,7 @@ use SilverStripe\Forms\FormAction;
 
 class SearchForm extends \SilverStripe\FullTextSearch\Solr\Forms\SearchForm
 {
-    public function __construct(RequestHandler $controller = null, string $name = 'SearchForm', FieldList $fields = null, FieldList $actions = null)
+    public function __construct(?RequestHandler $controller = null, string $name = 'SearchForm', ?FieldList $fields = null, ?FieldList $actions = null)
     {
         // try to always have the same controller handle search view
         $page = \Page::get()->filter('ClassName', \Page::class)->first();
