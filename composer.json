@@ -1,34 +1,29 @@
 {
-  "name": "nobrainer-web/solr-search",
-  "description": "Simple opinionated setup for using Solr search in a basic ss4 project",
-  "type": "silverstripe-vendormodule",
-  "keywords": [
-    "silverstripe",
-    "solr",
-    "search"
-  ],
-  "license": "BSD-3-Clause",
-  "authors": [
-    {
-      "name": "Sander Hagenaars",
-      "email": "sander@nobrainer.dk"
+    "name": "nobrainer-web/solr-search",
+    "description": "Simple opinionated setup for using Solr search in a Silverstripe 6 project",
+    "type": "silverstripe-vendormodule",
+    "keywords": [
+        "silverstripe",
+        "solr",
+        "search"
+    ],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Sander Hagenaars",
+            "email": "sander@nobrainer.dk"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.3",
+        "silverstripe/cms": "^6",
+        "silverstripe/fulltextsearch": "^5"
+    },
+    "autoload": {
+        "psr-4": {
+            "NobrainerWeb\\Solr\\": "src/"
+        }
     }
-  ],
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "require": {
-    "silverstripe/cms": "^4.3",
-    "silverstripe/fulltextsearch": "3.x-dev"
-  },
-  "require-dev": {
-    "silverstripe/fulltextsearch-localsolr": "dev-master"
-  },
-  "autoload": {
-    "psr-4": {
-      "NobrainerWeb\\Solr\\": "src/"
-    }
-  },
-  "suggest": {
-    "silverstripe/fulltextsearch-localsolr": "Adds a ready-to-use local Solr server for initial development"
-  }
 }
