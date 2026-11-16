@@ -38,7 +38,7 @@ class SearchForm extends \SilverStripe\FullTextSearch\Solr\Forms\SearchForm
         // make sure search field value is not "Search", but placeholder attribute is
         $val = _t('SilverStripe\\CMS\\Search\\SearchForm.SEARCH', 'Search');
         $f = $fields->dataFieldByName('Search');
-        if ($f && $f->Value() === $val) {
+        if ($f && $f->getValue() === $val) {
             $f->setValue('')->setAttribute('placeholder', $val);
         }
 
